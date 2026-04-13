@@ -115,6 +115,10 @@ sudo pacman -Sy
 | `unzip` | Unzip (required by Mason for clangd) |
 | `git` | Version control |
 | `base-devel` | Build tools |
+| `grim` | Wayland screenshot tool |
+| `slurp` | Screen region selector |
+| `reflector` | Mirror ranking tool |
+| `jq` | JSON processor (required by grimblast) |
 
 ### Neovim
 | Package | Description |
@@ -129,6 +133,7 @@ sudo pacman -Sy
 |---|---|
 | `bibata-cursor-theme` | Cursor theme |
 | `tela-icon-theme` | Icon theme |
+| `grimblast` | Screenshot helper for Hyprland |
 
 ---
 
