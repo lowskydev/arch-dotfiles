@@ -1,0 +1,131 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", "Font Awesome 6 Free";
+    font-size: 13px;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background-color: rgba(30, 30, 46, 0.75);
+    color: #cdd6f4;
+    border-radius: 12px;
+    transition-duration: 0.5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    padding: 0 4px;
+}
+
+#workspaces {
+    background-color: transparent;
+    margin: 4px 4px;
+    padding: 0 4px;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    color: #6c7086;
+    background-color: transparent;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+    background-color: rgba(137, 180, 250, 0.2);
+    color: #cdd6f4;
+}
+
+#workspaces button.active {
+    background-color: rgba(137, 180, 250, 0.3);
+    color: #89b4fa;
+    font-weight: bold;
+}
+
+#workspaces button.urgent {
+    background-color: rgba(243, 139, 168, 0.3);
+    color: #f38ba8;
+}
+
+#window {
+    color: #cdd6f4;
+    padding: 0 8px;
+    font-style: italic;
+}
+
+#cpu,
+#memory,
+#temperature,
+#custom-gpu-temp,
+#pulseaudio,
+#network,
+#tray,
+#clock {
+    background-color: rgba(49, 50, 68, 0.6);
+    color: #cdd6f4;
+    padding: 4px 12px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+#cpu {
+    color: #a6e3a1;
+}
+
+#memory {
+    color: #89b4fa;
+}
+
+#temperature {
+    color: #fab387;
+}
+
+#temperature.critical {
+    color: #f38ba8;
+    animation: blink 0.5s linear infinite alternate;
+}
+
+#pulseaudio {
+    color: #cba6f7;
+}
+
+#pulseaudio.muted {
+    color: #6c7086;
+}
+
+#network {
+    color: #89dceb;
+}
+
+#network.disconnected {
+    color: #f38ba8;
+}
+
+#tray {
+    padding: 4px 8px;
+}
+
+#clock {
+    color: #f9e2af;
+    font-weight: bold;
+}
+
+tooltip {
+    background-color: rgba(30, 30, 46, 0.95);
+    border: 1px solid rgba(137, 180, 250, 0.3);
+    border-radius: 8px;
+    color: #cdd6f4;
+}
+
+@keyframes blink {
+    to {
+        color: #f38ba8;
+        background-color: rgba(243, 139, 168, 0.2);
+    }
+}

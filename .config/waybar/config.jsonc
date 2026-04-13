@@ -1,0 +1,210 @@
+[
+    {
+        "layer": "top",
+        "position": "top",
+        "height": 36,
+        "spacing": 4,
+        "margin-top": 8,
+        "margin-left": 12,
+        "margin-right": 12,
+        "modules-left": [
+            "hyprland/workspaces"
+        ],
+        "modules-center": [
+            "custom/media"
+        ],
+        "modules-right": [
+            "cpu",
+            "memory",
+            "temperature",
+            "custom/gpu-temp",
+            "pulseaudio",
+            "tray",
+            "clock"
+        ],
+        "hyprland/workspaces": {
+            "format": "{icon}",
+            "format-icons": {
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5",
+                "6": "6",
+                "7": "7",
+                "8": "8",
+                "9": "9",
+                "10": "10"
+            },
+            "on-click": "activate",
+            "sort-by-number": true
+        },
+        "hyprland/window": {
+            "max-length": 80,
+            "separate-outputs": true
+        },
+        "custom/media": {
+            "format": "  {}",
+            "return-type": "json",
+            "max-length": 60,
+            "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{title}}\", \"tooltip\": \"{{playerName}}: {{artist}} - {{title}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F 2>/dev/null",
+            "on-click": "playerctl play-pause",
+            "on-click-right": "playerctl next",
+            "on-scroll-up": "playerctl next",
+            "on-scroll-down": "playerctl previous"
+        },
+        "cpu": {
+            "format": "  {usage}%",
+            "tooltip": true,
+            "interval": 2
+        },
+        "memory": {
+            "format": "  {used:0.1f}G",
+            "tooltip": true,
+            "interval": 2
+        },
+        "temperature": {
+            "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+            "critical-threshold": 85,
+            "format": "  {temperatureC}°C",
+            "format-critical": "  {temperatureC}°C",
+            "tooltip": false,
+            "interval": 2
+        },
+        "custom/gpu-temp": {
+            "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits",
+            "format": "  {}°C",
+            "interval": 2,
+            "tooltip": false
+        },
+        "pulseaudio": {
+            "format": "{icon}  {volume}%",
+            "format-muted": "  muted",
+            "format-icons": {
+                "default": [
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+            "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+            "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+            "tooltip": true
+        },
+        "tray": {
+            "icon-size": 16,
+            "spacing": 8
+        },
+        "clock": {
+            "format": "  {:%H:%M}",
+            "format-alt": "  {:%a, %d %b %Y}",
+            "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        },
+        "output": "DP-5"
+    },
+    {
+        "layer": "top",
+        "position": "top",
+        "height": 36,
+        "spacing": 4,
+        "margin-top": 8,
+        "margin-left": 12,
+        "margin-right": 12,
+        "modules-left": [
+            "hyprland/workspaces"
+        ],
+        "modules-center": [
+            "custom/media"
+        ],
+        "modules-right": [
+            "cpu",
+            "memory",
+            "temperature",
+            "custom/gpu-temp",
+            "pulseaudio",
+            "tray",
+            "clock"
+        ],
+        "hyprland/workspaces": {
+            "format": "{icon}",
+            "format-icons": {
+                "1": "1",
+                "2": "2",
+                "3": "3",
+                "4": "4",
+                "5": "5",
+                "6": "6",
+                "7": "7",
+                "8": "8",
+                "9": "9",
+                "10": "10"
+            },
+            "on-click": "activate",
+            "sort-by-number": true
+        },
+        "hyprland/window": {
+            "max-length": 80,
+            "separate-outputs": true
+        },
+        "custom/media": {
+            "format": "  {}",
+            "return-type": "json",
+            "max-length": 60,
+            "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{title}}\", \"tooltip\": \"{{playerName}}: {{artist}} - {{title}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F 2>/dev/null",
+            "on-click": "playerctl play-pause",
+            "on-click-right": "playerctl next",
+            "on-scroll-up": "playerctl next",
+            "on-scroll-down": "playerctl previous"
+        },
+        "cpu": {
+            "format": "  {usage}%",
+            "tooltip": true,
+            "interval": 2
+        },
+        "memory": {
+            "format": "  {used:0.1f}G",
+            "tooltip": true,
+            "interval": 2
+        },
+        "temperature": {
+            "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+            "critical-threshold": 85,
+            "format": "  {temperatureC}°C",
+            "format-critical": "  {temperatureC}°C",
+            "tooltip": false,
+            "interval": 2
+        },
+        "custom/gpu-temp": {
+            "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits",
+            "format": "  {}°C",
+            "interval": 2,
+            "tooltip": false
+        },
+        "pulseaudio": {
+            "format": "{icon}  {volume}%",
+            "format-muted": "  muted",
+            "format-icons": {
+                "default": [
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+            "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+",
+            "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",
+            "tooltip": true
+        },
+        "tray": {
+            "icon-size": 16,
+            "spacing": 8
+        },
+        "clock": {
+            "format": "  {:%H:%M}",
+            "format-alt": "  {:%a, %d %b %Y}",
+            "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        },
+        "output": "DP-4"
+    }
+]
