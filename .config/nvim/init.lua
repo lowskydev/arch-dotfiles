@@ -541,7 +541,8 @@ opt.splitright = true       -- new vertical splits go right
 
 -- Files
 opt.swapfile = false        -- don't create swap files
-opt.backup = false          -- don't create backup files
+opt.backup = true           -- don't create backup files
+opt.backupdir = vim.fn.expand("~/.config/nvim/backup//")
 opt.undofile = true         -- persistent undo history across sessions
 opt.undodir = vim.fn.expand("~/.config/nvim/undodir")
 
