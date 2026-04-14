@@ -119,6 +119,9 @@ sudo pacman -Sy
 | `slurp` | Screen region selector |
 | `reflector` | Mirror ranking tool |
 | `jq` | JSON processor (required by grimblast) |
+| `swaync` | Notification daemon with notification center |
+| `libnotify` | Provides notify-send for sending notifications |
+| `grimblast` | Screenshot helper for Hyprland |
 
 ### Neovim
 | Package | Description |
