@@ -119,6 +119,7 @@ sudo pacman -Sy
 | `slurp` | Screen region selector |
 | `reflector` | Mirror ranking tool |
 | `jq` | JSON processor (required by grimblast) |
+| `imagemagick` | Image processing (required by image.nvim) |
 | `swaync` | Notification daemon with notification center |
 | `libnotify` | Provides notify-send for sending notifications |
 | `grimblast` | Screenshot helper for Hyprland |
@@ -127,6 +128,7 @@ sudo pacman -Sy
 | Package | Description |
 |---|---|
 | `neovim` | Text editor |
+| `rustup` | Rust toolchain manager |
 
 ---
 
