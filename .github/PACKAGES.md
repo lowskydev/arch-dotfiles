@@ -82,6 +82,10 @@ sudo pacman -Sy
 |---|---|
 | `networkmanager` | Network manager |
 | `network-manager-applet` | NetworkManager tray applet |
+
+### Virtualization
+| Package | Description |
+|---|---|
 | `qemu-full` | QEMU/KVM hypervisor |
 | `libvirt` | Virtualization API and daemon |
 | `virt-install` | CLI tool to create VMs |
@@ -90,10 +94,6 @@ sudo pacman -Sy
 | `edk2-ovmf` | UEFI firmware support for VMs |
 | `dnsmasq` | DHCP/DNS for VM networking |
 | `iptables-nft` | Required for libvirt NAT networking |
-
-### Hyprland desktop
-| Package | Description |
-|---|---|
 
 ### Clipboard
 | Package | Description |
