@@ -218,13 +218,17 @@ Open Neovim and run:
 ```
 
 ### Enable virtualization
+```
 sudo systemctl enable --now libvirtd.socket
 sudo virsh net-start default
 sudo virsh net-autostart default
 sudo usermod -aG libvirt wiki
+```
 
 ### Allow VM networking through UFW
+```
 sudo ufw allow in on virbr0
 sudo ufw allow out on virbr0
 sudo ufw route allow in on virbr0
 sudo ufw route allow out on virbr0
+```
