@@ -1,3 +1,8 @@
+# Run hyprland if not running AND logged in in first virtual terminal (TT1)
+if [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+    exec start-hyprland
+fi
+
 # History
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
