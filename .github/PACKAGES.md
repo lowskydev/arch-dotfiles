@@ -82,6 +82,18 @@ sudo pacman -Sy
 |---|---|
 | `networkmanager` | Network manager |
 | `network-manager-applet` | NetworkManager tray applet |
+| `qemu-full` | QEMU/KVM hypervisor |
+| `libvirt` | Virtualization API and daemon |
+| `virt-install` | CLI tool to create VMs |
+| `virt-manager` | GUI for managing VMs |
+| `virt-viewer` | VM display viewer |
+| `edk2-ovmf` | UEFI firmware support for VMs |
+| `dnsmasq` | DHCP/DNS for VM networking |
+| `iptables-nft` | Required for libvirt NAT networking |
+
+### Hyprland desktop
+| Package | Description |
+|---|---|
 
 ### Clipboard
 | Package | Description |
@@ -204,3 +216,15 @@ Open Neovim and run:
 :Lazy sync
 :MasonInstall pyright typescript-language-server bash-language-server json-lsp yaml-language-server dockerfile-language-server html-lsp css-lsp clangd
 ```
+
+### Enable virtualization
+sudo systemctl enable --now libvirtd.socket
+sudo virsh net-start default
+sudo virsh net-autostart default
+sudo usermod -aG libvirt wiki
+
+### Allow VM networking through UFW
+sudo ufw allow in on virbr0
+sudo ufw allow out on virbr0
+sudo ufw route allow in on virbr0
+sudo ufw route allow out on virbr0
