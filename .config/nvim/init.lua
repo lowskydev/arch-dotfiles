@@ -702,3 +702,35 @@ autocmd("BufWritePre", {
     vim.lsp.buf.format({ async = false })
   end,
 })
+
+-- Wrap .md .txt files
+-- 1. Auto add newline characters when hit text width
+-- autocmd("FileType", {
+--   group = augroup("ProseWrap", { clear = true }),
+--   pattern = { "markdown", "text" },
+--   callback = function()
+--     vim.opt_local.wrap = true
+--     vim.opt_local.linebreak = true                    -- wrap at word boundaries
+--     vim.opt_local.breakindent = true                  -- wrapped lines preserve indentation
+--     vim.opt_local.textwidth = 100                     -- hard wrap at 100 characters while typing
+--     vim.opt_local.formatoptions:append("t")           -- auto-wrap text when typing past textwidth
+--     vim.keymap.set("n", "j", "gj", { buffer = true }) -- move by visual line
+--     vim.keymap.set("n", "k", "gk", { buffer = true })
+--     vim.keymap.set("n", "0", "g0", { buffer = true }) -- go to visual line start
+--     vim.keymap.set("n", "$", "g$", { buffer = true }) -- go to visual line end
+--   end,
+-- })
+-- 2. DO NOT ADD newline characters just wrap with nice navigation
+autocmd("FileType", {
+  group = augroup("ProseWrap", { clear = true }),
+  pattern = { "markdown", "text" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.linebreak = true   -- wrap at word boundaries
+    vim.opt_local.breakindent = true -- wrapped lines preserve indentation
+    vim.keymap.set("n", "j", "gj", { buffer = true })
+    vim.keymap.set("n", "k", "gk", { buffer = true })
+    vim.keymap.set("n", "0", "g0", { buffer = true })
+    vim.keymap.set("n", "$", "g$", { buffer = true })
+  end,
+})
