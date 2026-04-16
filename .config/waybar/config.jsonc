@@ -101,7 +101,7 @@
             "format-alt": "  {:%a, %d %b %Y}",
             "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
         },
-        "output": "DP-5"
+        "output": "DP-1"
     },
     {
         "layer": "top",
@@ -205,6 +205,6 @@
             "format-alt": "  {:%a, %d %b %Y}",
             "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
         },
-        "output": "DP-4"
+        "output": "DP-2"
     }
 ]
