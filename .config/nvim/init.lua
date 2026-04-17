@@ -126,52 +126,50 @@ require("lazy").setup({
   },
 
   -- ==========================================================================
-  -- FILE TREE (nvim-tree)
+  -- FILE TREE (neo-tree)
   -- ==========================================================================
   {
-    "nvim-tree/nvim-tree.lua",
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
     dependencies = {
+      "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim",
     },
+    lazy = false,
     config = function()
-      -- disable netrw in favor of nvim-tree
+      -- disable netrw in favor of neo-tree
       vim.g.loaded_netrw = 1
       vim.g.loaded_netrwPlugin = 1
 
-      require("nvim-tree").setup({
-        view = {
-          width = 35,
-          side = "left",
-        },
-        renderer = {
-          group_empty = true,
-          highlight_git = true,
-          icons = {
-            show = {
-              file = true,
-              folder = true,
-              folder_arrow = true,
-              git = true,
-            },
+      require("neo-tree").setup({
+        close_if_last_window = true,
+        popup_border_style = "rounded",
+        filesystem = {
+          filtered_items = {
+            hide_dotfiles = false,   -- show dotfiles
+            hide_gitignored = false, -- show gitignored files
           },
-        },
-        filters = {
-          dotfiles = false,
-        },
-        git = {
-          enable = true,
-          ignore = false,
-        },
-        actions = {
-          open_file = {
-            quit_on_open = false,
+          follow_current_file = {
+            enabled = true,              -- highlight current file in tree
           },
+          use_libuv_file_watcher = true, -- auto refresh
+        },
+        window = {
+          position = "float",
+          -- popup = {
+          --   size = {
+          --     width = 50,
+          --     height = 30,
+          --   },
+          -- },
         },
       })
 
       local opts = { noremap = true, silent = true }
-      vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", opts)    -- toggle file tree
-      vim.keymap.set("n", "<leader>ef", ":NvimTreeFindFile<CR>", opts) -- find current file in tree
+      vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", opts)            -- toggle file tree
+      vim.keymap.set("n", "<leader>ef", ":Neotree reveal<CR>", opts)           -- reveal current file
+      vim.keymap.set("n", "<leader>eg", ":Neotree float git_status<CR>", opts) -- git status tree
     end,
   },
 
