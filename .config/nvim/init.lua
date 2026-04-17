@@ -557,6 +557,16 @@ require("lazy").setup({
       },
       parser = "compact",
     },
+    config = function(_, opts)
+      require("undotree").setup(opts)
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "undotree",
+        callback = function(args)
+          vim.keymap.set("n", "<Esc>", "<cmd>lua require('undotree').toggle()<cr>",
+            { buffer = args.buf, silent = true })
+        end,
+      })
+    end,
   },
 
   -- ==========================================================================
