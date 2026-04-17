@@ -542,6 +542,24 @@ require("lazy").setup({
       })
     end,
   },
+  -- ==========================================================================
+  -- UNDO TREE
+  -- ==========================================================================
+  {
+    "jiaoshijie/undotree",
+    keys = {
+      { "<leader>u", "<cmd>lua require('undotree').toggle()<cr>", desc = "Toggle undo tree" },
+    },
+    opts = {
+      float_diff = true,
+      layout = "left_bottom",
+      position = "left",
+      window = {
+        border = "rounded",
+      },
+      parser = "compact",
+    },
+  },
 
 }, {
   ui = {
