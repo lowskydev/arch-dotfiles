@@ -561,6 +561,17 @@ require("lazy").setup({
     },
   },
 
+  -- ==========================================================================
+  -- SCROLL EOF
+  -- ==========================================================================
+  {
+    "Aasim-A/scrollEOF.nvim",
+    event = { "CursorMoved", "WinScrolled" },
+    opts = {
+      insert_mode = true,
+    },
+  },
+
 }, {
   ui = {
     border = "rounded",
