@@ -24,6 +24,10 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"        # colors in menu 
 zstyle ':completion:*:descriptions' format '[%d]'              # show group headers and flag descriptions
 zstyle ':completion:*' use-cache on                            # cache completions for speed
 zstyle ':completion:*' cache-path ~/.zcompcache                # where to store the cache
+zstyle ':completion:*' menu no                                 # let fzf-tab handle the menu, not zsh
+
+# fzf-tab — replace completion menu with fzf picker
+source /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 
 # Key bindings
 typeset -g -A key
