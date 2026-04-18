@@ -78,6 +78,34 @@ eval "$(zoxide init zsh)"
 # kitty SSH fix
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
+# Git aliases
+# most usefull: gst, gaa, gcm, gp, gl, glo, and gcb
+alias g='git'
+alias ga='git add'
+alias gaa='git add --all'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gca='git commit --amend'
+alias gco='git checkout'
+alias gcb='git checkout -b'
+alias gb='git branch'
+alias gbd='git branch -d'
+alias gst='git status'
+alias gss='git status -s'
+alias gd='git diff'
+alias gds='git diff --staged'
+alias gl='git pull'
+alias gp='git push'
+alias gpf='git push --force-with-lease'
+alias glo='git log --oneline --graph --decorate'
+alias gla='git log --oneline --graph --decorate --all'
+alias grb='git rebase'
+alias grbi='git rebase -i'
+alias grs='git restore'
+alias grss='git restore --staged'
+alias gsth='git stash'
+alias gstp='git stash pop'
+
 # Aliases
 alias ls='ls --color=auto'
 alias ll='ls -la'
