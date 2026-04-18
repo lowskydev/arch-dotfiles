@@ -54,6 +54,8 @@ sudo pacman -Sy
 | `starship` | Shell prompt |
 | `zsh-autosuggestions` | Fish-like autosuggestions for zsh |
 | `zoxide` | Smarter cd command |
+| `fzf` | Fuzzy finder (used by fzf-tab and CTRL+R history search) |
+| `zsh-completions` | Extra completion definitions for zsh |
 
 ### App launcher
 | Package | Description |
@@ -151,6 +153,7 @@ sudo pacman -Sy
 | `bibata-cursor-theme` | Cursor theme |
 | `tela-icon-theme` | Icon theme |
 | `grimblast` | Screenshot helper for Hyprland |
+| `fzf-tab` | Replaces zsh completion menu with fzf picker |
 
 ---
 
