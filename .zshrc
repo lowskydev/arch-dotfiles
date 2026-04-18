@@ -11,11 +11,19 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 setopt SHARE_HISTORY
 
+# Set LS_COLORS so completion menu colors match ls
+eval "$(dircolors -b)"
+
 # Completion
-autoload -Uz compinit
-compinit
-zstyle ':completion:*' menu select
-zstyle ':completion:*' rehash true
+autoload -Uz compinit && compinit                               # load zsh completion engine
+zstyle ':completion:*' completer _complete _approximate         # complete then fuzzy-match typos, no history bleed
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'         # case insensitive matching
+zstyle ':completion:*' list-suffixes yes                        # partial path: ~/d/ro -> ~/dev/robotics
+zstyle ':completion:*' expand prefix suffix                     # expand each path segment separately
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"        # colors in menu matching ls colors
+zstyle ':completion:*:descriptions' format '[%d]'              # show group headers and flag descriptions
+zstyle ':completion:*' use-cache on                            # cache completions for speed
+zstyle ':completion:*' cache-path ~/.zcompcache                # where to store the cache
 
 # Key bindings
 typeset -g -A key
