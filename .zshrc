@@ -50,6 +50,10 @@ fi
 # Plugins
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# fzf keybindings and completion
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
 # zoxide
 eval "$(zoxide init zsh)"
 
