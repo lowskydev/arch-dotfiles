@@ -32,6 +32,9 @@ zstyle ':completion:*' menu no                                 # let fzf-tab han
 # fzf-tab — replace completion menu with fzf picker
 source /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
 
+# treat / as a word delimiter for CTRL+Left/Right navigation
+WORDCHARS=${WORDCHARS/\/}
+
 # Key bindings
 typeset -g -A key
 key[Home]="${terminfo[khome]}"
