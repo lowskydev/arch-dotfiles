@@ -14,6 +14,9 @@ setopt SHARE_HISTORY
 # Set LS_COLORS so completion menu colors match ls
 eval "$(dircolors -b)"
 
+# extra completion definitions
+fpath=(/usr/share/zsh/site-functions $fpath)
+
 # Completion
 autoload -Uz compinit && compinit                               # load zsh completion engine
 zstyle ':completion:*' completer _complete _approximate         # complete then fuzzy-match typos, no history bleed
