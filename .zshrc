@@ -125,6 +125,7 @@ alias vim="nvim"
 alias vi="nvim"
 alias clear="tput reset"
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dst='dotfiles status'
 
 # Dotfiles quick commit and push
 dotpush() {
