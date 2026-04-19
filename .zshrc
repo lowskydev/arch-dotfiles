@@ -14,6 +14,9 @@ setopt SHARE_HISTORY
 # Set LS_COLORS so completion menu colors match ls
 eval "$(dircolors -b)"
 
+# disable paste highlight box
+zle_highlight=('paste:none')
+
 # extra completion definitions
 fpath=(/usr/share/zsh/site-functions $fpath)
 
