@@ -154,6 +154,7 @@ sudo pacman -Sy
 | `tela-icon-theme` | Icon theme |
 | `grimblast` | Screenshot helper for Hyprland |
 | `fzf-tab` | Replaces zsh completion menu with fzf picker |
+| `zsh-fast-syntax-highlighting` | Feature-rich syntax highlighting for zsh |
 
 ---
 
