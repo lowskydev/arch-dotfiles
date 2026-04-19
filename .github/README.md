@@ -19,10 +19,12 @@ Add this to your `~/.zshrc` then run `source ~/.zshrc`.
 ## Daily commands
 
 ```
-dotfiles status              # what changed?
-dotfiles ls-files            # what's tracked?
-dotfiles log --oneline       # see history
-dotfiles diff                # see exact changes
+dotfiles status          # what changed?
+dotfiles ls-files        # what's tracked?
+dotfiles log --oneline   # see history
+dotfiles diff            # see exact changes
+dst                      # alias for dotfiles status
+dotpush 'msg'            # function for `add -u -> commit -m 'msg' -> push`
 ```
 
 ---
@@ -98,4 +100,6 @@ dotfiles push                # push to GitHub
 dotfiles pull                # pull changes from GitHub
 dotfiles log --oneline       # see history
 dotfiles diff                # see exact changes
+dst                          # alias for dotfiles status
+dotpush 'msg'                # function for `add -u -> commit -m 'msg' -> push`
 ```
