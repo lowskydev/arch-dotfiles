@@ -123,6 +123,9 @@ alias vi="nvim"
 alias clear="tput reset"
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+# Fast syntax highlighting
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
 # Starship prompt
 eval "$(starship init zsh)"
 source ~/.zsh-transient-prompt/transient-prompt.zsh-theme
@@ -130,5 +133,8 @@ TRANSIENT_PROMPT_PROMPT='$(starship prompt --terminal-width="$COLUMNS" --keymap=
 TRANSIENT_PROMPT_RPROMPT='$(starship prompt --right --terminal-width="$COLUMNS" --keymap="${KEYMAP:-}" --status="$STARSHIP_CMD_STATUS" --pipestatus="${STARSHIP_PIPE_STATUS[*]}" --cmd-duration="${STARSHIP_DURATION:-}" --jobs="$STARSHIP_JOBS_COUNT")'
 TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(starship module character) '
 
+
 # PATH
 export PATH="$HOME/.local/bin:$PATH"
+
+
