@@ -126,6 +126,13 @@ alias vi="nvim"
 alias clear="tput reset"
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+# Dotfiles quick commit and push
+dotpush() {
+  dotfiles add -u
+  dotfiles commit -m "${1:?Usage: dotpush 'commit message'}"
+  dotfiles push
+}
+
 # Fast syntax highlighting
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
