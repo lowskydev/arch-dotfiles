@@ -24,7 +24,7 @@ dotfiles ls-files        # what's tracked?
 dotfiles log --oneline   # see history
 dotfiles diff            # see exact changes
 dst                      # alias for dotfiles status
-dotpush 'msg'            # function for `add -u -> commit -m 'msg' -> push`
+dotpush 'msg'            # function for add -u -> commit -m 'msg' -> push
 ```
 
 ---
