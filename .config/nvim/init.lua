@@ -819,3 +819,12 @@ autocmd("FileType", {
     vim.opt_local.spelllang = "en_us"
   end,
 })
+
+-- Don't auto-insert comment leader on new line
+autocmd("FileType", {
+  group = augroup("NoAutoComment", { clear = true }),
+  pattern = "*",
+  callback = function()
+    vim.opt_local.formatoptions:remove({ "r", "o" })
+  end,
+})
