@@ -17,6 +17,8 @@ eval "$(dircolors -b)"
 # extra completion definitions
 fpath=(/usr/share/zsh/site-functions $fpath)
 
+# setopt globdots  # show dotfiles in completion
+
 # Completion
 autoload -Uz compinit && compinit                               # load zsh completion engine
 zstyle ':completion:*' completer _complete _approximate         # complete then fuzzy-match typos, no history bleed
@@ -31,6 +33,9 @@ zstyle ':completion:*' menu no                                 # let fzf-tab han
 
 # fzf-tab — replace completion menu with fzf picker
 source /usr/share/zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
+
+zstyle ':fzf-tab:*' fzf-bindings 'tab:accept'  # tab accepts selection instead of enter
+zstyle ':completion:*' list-dirs-first true # show directories first
 
 # treat / as a word delimiter for CTRL+Left/Right navigation
 WORDCHARS=${WORDCHARS/\/}
