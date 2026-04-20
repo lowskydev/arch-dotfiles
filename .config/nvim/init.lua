@@ -580,6 +580,16 @@ require("lazy").setup({
     },
   },
 
+  -- ==========================================================================
+  -- MARKDOWN RENDERING
+  -- ==========================================================================
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+    ft = "markdown",
+    opts = {},
+  },
+
 }, {
   ui = {
     border = "rounded",
@@ -826,5 +836,36 @@ autocmd("FileType", {
   pattern = "*",
   callback = function()
     vim.opt_local.formatoptions:remove({ "r", "o" })
+  end,
+})
+
+-- Markdown keymaps (only in .md files)
+autocmd("FileType", {
+  group = augroup("MarkdownKeymaps", { clear = true }),
+  pattern = "markdown",
+  callback = function()
+    local opts = { noremap = true, silent = true, buffer = true }
+
+    -- Toggle render-markdown rendering on/off
+    vim.keymap.set("n", "<leader>mt", ":RenderMarkdown toggle<CR>", opts)
+
+    -- Inline formatting — visual mode (wrap selected text)
+    vim.keymap.set("v", "<leader>mb", "c**<C-r>\"**<Esc>", opts) -- **bold**
+    vim.keymap.set("v", "<leader>mi", "c*<C-r>\"*<Esc>", opts)   -- *italic*
+    vim.keymap.set("v", "<leader>mc", "c`<C-r>\"`<Esc>", opts)   -- `code`
+
+    -- Inline formatting — normal mode (wrap word under cursor)
+    vim.keymap.set("n", "<leader>mb", "ciw**<C-r>\"**<Esc>", opts) -- **bold**
+    vim.keymap.set("n", "<leader>mi", "ciw*<C-r>\"*<Esc>", opts)   -- *italic*
+    vim.keymap.set("n", "<leader>mc", "ciw`<C-r>\"`<Esc>", opts)   -- `code`
+
+    -- Headings — normal mode (prepend # to current line)
+    -- Note: applies on top of existing content, don't press twice
+    vim.keymap.set("n", "<leader>m1", "0i# <Esc>", opts)      -- H1
+    vim.keymap.set("n", "<leader>m2", "0i## <Esc>", opts)     -- H2
+    vim.keymap.set("n", "<leader>m3", "0i### <Esc>", opts)    -- H3
+    vim.keymap.set("n", "<leader>m4", "0i#### <Esc>", opts)   -- H4
+    vim.keymap.set("n", "<leader>m5", "0i##### <Esc>", opts)  -- H5
+    vim.keymap.set("n", "<leader>m6", "0i###### <Esc>", opts) -- H6
   end,
 })
