@@ -1,6 +1,6 @@
 # Dotfiles
 
-Arch Linux dotfiles managed with a bare git repository.
+Arch Linux (btw) dotfiles managed with a bare git repository.
 Files stay in their exact locations, no symlinks, no special directories.
 
 For a full list of required packages and post-install steps, see [PACKAGES.md](PACKAGES.md).
