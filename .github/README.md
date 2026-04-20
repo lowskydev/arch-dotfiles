@@ -12,7 +12,7 @@ The `dotfiles` alias replaces `git` for managing configs:
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 ```
 
-Add this to your `~/.zshrc` then run `source ~/.zshrc`.
+Add this to `~/.zshrc` then run `source ~/.zshrc`.
 
 ---
 
