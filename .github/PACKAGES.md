@@ -137,6 +137,8 @@ sudo pacman -Sy
 | `swaync` | Notification daemon with notification center |
 | `libnotify` | Provides notify-send for sending notifications |
 | `grimblast` | Screenshot helper for Hyprland |
+| `zathura` | Minimalistic document viewer |
+| `zathura-pdf-mupdf` | PDF support for Zathura (MuPDF backend) |
 
 ### Neovim
 | Package | Description |
