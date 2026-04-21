@@ -257,16 +257,16 @@ require("lazy").setup({
         callback = function(args)
           local opts = { noremap = true, silent = true, buffer = args.buf }
           local keymap = vim.keymap.set
-          keymap("n", "gd", vim.lsp.buf.definition, opts)           -- go to definition
-          keymap("n", "gD", vim.lsp.buf.declaration, opts)          -- go to declaration
-          keymap("n", "gr", vim.lsp.buf.references, opts)           -- find references
-          keymap("n", "gi", vim.lsp.buf.implementation, opts)       -- go to implementation
-          keymap("n", "K", vim.lsp.buf.hover, opts)                 -- hover documentation
-          keymap("n", "<leader>rn", vim.lsp.buf.rename, opts)       -- rename symbol
-          keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts)  -- code actions
-          keymap("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostic
-          keymap("n", "[d", vim.diagnostic.goto_prev, opts)         -- previous diagnostic
-          keymap("n", "]d", vim.diagnostic.goto_next, opts)         -- next diagnostic
+          keymap("n", "gd", vim.lsp.buf.definition, opts)                             -- go to definition
+          keymap("n", "gD", vim.lsp.buf.declaration, opts)                            -- go to declaration
+          keymap("n", "gr", vim.lsp.buf.references, opts)                             -- find references
+          keymap("n", "gi", vim.lsp.buf.implementation, opts)                         -- go to implementation
+          keymap("n", "K", vim.lsp.buf.hover, opts)                                   -- hover documentation
+          keymap("n", "<leader>rn", vim.lsp.buf.rename, opts)                         -- rename symbol
+          keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts)                    -- code actions
+          keymap("n", "<leader>d", vim.diagnostic.open_float, opts)                   -- show diagnostic
+          keymap("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, opts) -- previous diagnostic
+          keymap("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, opts)  -- next diagnostic
         end,
       })
 
@@ -293,7 +293,7 @@ require("lazy").setup({
         settings = {
           Lua = {
             diagnostics = {
-              globals = { "vim" }, -- don't warn about vim global
+              globals = { "vim" },
             },
             workspace = {
               library = vim.api.nvim_get_runtime_file("", true),
@@ -302,6 +302,17 @@ require("lazy").setup({
           },
         },
       })
+
+      -- cspell LSP for spell checking in code and markdown
+      vim.lsp.config("cspell_ls", {
+        cmd = { "node", vim.fn.expand("~/.local/bin/cspell-lsp"), "--stdio" },
+        filetypes = {
+          "markdown", "text", "gitcommit", "python", "rust", "javascript", "typescript",
+          "html", "css", "yaml", "json",
+        },
+        root_markers = { ".git" },
+      })
+      vim.lsp.enable("cspell_ls")
     end,
   },
 
@@ -540,6 +551,7 @@ require("lazy").setup({
       })
     end,
   },
+
   -- ==========================================================================
   -- UNDO TREE
   -- ==========================================================================
@@ -825,7 +837,7 @@ autocmd("FileType", {
   group = augroup("SpellCheck", { clear = true }),
   pattern = { "markdown", "text" },
   callback = function()
-    vim.opt_local.spell = true
+    vim.opt_local.spell = false
     vim.opt_local.spelllang = "en_us"
   end,
 })
