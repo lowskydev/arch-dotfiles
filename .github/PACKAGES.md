@@ -239,8 +239,3 @@ sudo ufw route allow in on virbr0
 sudo ufw route allow out on virbr0
 ```
 
-### Install cspell LSP for spell checking in Neovim
-```
-npm install -g cspell@latest
-npm install -g cspell-lsp
-```

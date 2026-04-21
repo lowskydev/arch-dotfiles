@@ -303,16 +303,16 @@ require("lazy").setup({
         },
       })
 
-      -- cspell LSP for spell checking in code and markdown
-      vim.lsp.config("cspell_ls", {
-        cmd = { "node", vim.fn.expand("~/.local/bin/cspell-lsp"), "--stdio" },
-        filetypes = {
-          "markdown", "text", "gitcommit", "python", "rust", "javascript", "typescript",
-          "html", "css", "yaml", "json",
-        },
-        root_markers = { ".git" },
-      })
-      vim.lsp.enable("cspell_ls")
+      --     -- cspell LSP for spell checking in code and markdown
+      --     vim.lsp.config("cspell_ls", {
+      --       cmd = { "node", vim.fn.expand("~/.local/bin/cspell-lsp"), "--stdio" },
+      --       filetypes = {
+      --         "markdown", "text", "gitcommit", "python", "rust", "javascript", "typescript",
+      --         "html", "css", "yaml", "json",
+      --       },
+      --       root_markers = { ".git" },
+      --     })
+      --     vim.lsp.enable("cspell_ls")
     end,
   },
 
@@ -837,7 +837,7 @@ autocmd("FileType", {
   group = augroup("SpellCheck", { clear = true }),
   pattern = { "markdown", "text" },
   callback = function()
-    vim.opt_local.spell = false
+    vim.opt_local.spell = true
     vim.opt_local.spelllang = "en_us"
   end,
 })
