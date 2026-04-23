@@ -239,3 +239,5 @@ sudo ufw route allow in on virbr0
 sudo ufw route allow out on virbr0
 ```
 
+## Browser scripts
+Tampermonkey scripts are stored as plain `.js` files in `~/.config/tampermonkey/`. Tampermonkey is required as an browser extension enabled in browser of choice. Remember to enable developer settings in extensions and then enable permission for executing scripts in extension menu for tampermonkey.
