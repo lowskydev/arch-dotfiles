@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Rust Book Vim Navigation
 // @namespace    http://tampermonkey.net/
-// @version      1.1
+// @version      1.2
 // @description  hjkl + s keybindings for the Rust Book
 // @match        https://doc.rust-lang.org/book/*
 // @match        https://doc.rust-lang.org/stable/book/*
@@ -15,7 +15,29 @@
   'use strict';
   console.log('[rust-book-vim] loaded on', location.href);
 
-  const SCROLL_AMOUNT = 80;
+  const SCROLL_SPEED = 3; // px per frame — tune to taste
+
+  const held = { j: false, k: false };
+  let rafId = null;
+
+  function scrollLoop() {
+    if (held.j) window.scrollBy(0, SCROLL_SPEED);
+    if (held.k) window.scrollBy(0, -SCROLL_SPEED);
+
+    if (held.j || held.k) {
+      rafId = requestAnimationFrame(scrollLoop);
+    } else {
+      rafId = null;
+    }
+  }
+
+  function startScrolling() {
+    if (!rafId) rafId = requestAnimationFrame(scrollLoop);
+  }
+
+  function stopScrolling() {
+    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+  }
 
   function handler(e) {
     const t = e.target;
@@ -25,11 +47,11 @@
 
     let handled = true;
     switch (e.key) {
-      case 'k':
-        window.scrollBy({ top: -SCROLL_AMOUNT, behavior: 'smooth' });
-        break;
       case 'j':
-        window.scrollBy({ top: SCROLL_AMOUNT, behavior: 'smooth' });
+        if (!held.j) { held.j = true; startScrolling(); }
+        break;
+      case 'k':
+        if (!held.k) { held.k = true; startScrolling(); }
         break;
       case 'h': {
         const prev = document.querySelector('a.nav-chapters.previous, a[rel="prev"], .mobile-nav-chapters.previous');
@@ -41,12 +63,12 @@
         if (next) next.click();
         break;
       }
+      case 's':
       case 'S': {
         const label = document.getElementById('mdbook-sidebar-toggle');
         if (label) {
           label.click();
         } else {
-          // Fallbacks
           const anchor = document.getElementById('mdbook-sidebar-toggle-anchor');
           const old = document.getElementById('sidebar-toggle');
           if (anchor) anchor.click();
@@ -57,12 +79,23 @@
       default:
         handled = false;
     }
+
     if (handled) {
       e.preventDefault();
       e.stopImmediatePropagation();
     }
   }
 
-  // Capture phase = we run BEFORE mdBook's own key handlers
   window.addEventListener('keydown', handler, true);
+
+  window.addEventListener('keyup', function(e) {
+    if (e.key === 'j') { held.j = false; if (!held.k) stopScrolling(); }
+    if (e.key === 'k') { held.k = false; if (!held.j) stopScrolling(); }
+  }, true);
+
+  window.addEventListener('blur', function() {
+    held.j = false;
+    held.k = false;
+    stopScrolling();
+  });
 })();
