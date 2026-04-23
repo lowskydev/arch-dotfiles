@@ -654,8 +654,8 @@ opt.undodir = vim.fn.expand("~/.config/nvim/undodir")
 opt.clipboard = "unnamedplus" -- use system clipboard (fixes vim <-> OS copy paste)
 
 -- Performance
-opt.updatetime = 50  -- faster completion and diagnostics
-opt.timeoutlen = 300 -- faster key sequence timeout
+opt.updatetime = 50   -- faster completion and diagnostics
+opt.timeoutlen = 2000 -- faster key sequence timeout
 
 -- UI
 opt.showmode = false -- don't show -- INSERT -- (statusline handles this)
