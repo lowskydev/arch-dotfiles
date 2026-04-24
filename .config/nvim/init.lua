@@ -741,6 +741,7 @@ ls.add_snippets("markdown", {
   }),
 })
 
+-- markdown Github alerts snippets
 ls.add_snippets("markdown", {
   s("man", { t("> [!NOTE] "), i(1), t({ "", "> " }), i(2) }),
   s("mat", { t("> [!TIP] "), i(1), t({ "", "> " }), i(2) }),
