@@ -741,6 +741,14 @@ ls.add_snippets("markdown", {
   }),
 })
 
+ls.add_snippets("markdown", {
+  s("man", { t("> [!NOTE] "), i(1), t({ "", "> " }), i(2) }),
+  s("mat", { t("> [!TIP] "), i(1), t({ "", "> " }), i(2) }),
+  s("mai", { t("> [!IMPORTANT] "), i(1), t({ "", "> " }), i(2) }),
+  s("maw", { t("> [!WARNING] "), i(1), t({ "", "> " }), i(2) }),
+  s("mac", { t("> [!CAUTION] "), i(1), t({ "", "> " }), i(2) }),
+})
+
 ls.filetype_extend("text", { "markdown" })
 
 -- =============================================================================
