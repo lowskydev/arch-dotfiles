@@ -44,10 +44,10 @@ opt.undodir = vim.fn.expand("~/.config/nvim/undodir")
 opt.clipboard = "unnamedplus" -- use system clipboard
 
 -- Performance
-opt.updatetime = 50   -- faster completion and diagnostics
-opt.timeoutlen = 800  -- key sequence timeout
+opt.updatetime = 50  -- faster completion and diagnostics
+opt.timeoutlen = 300 -- key sequence timeout
 
 -- UI
-opt.showmode = false  -- don't show -- INSERT -- (statusline handles this)
-opt.pumheight = 10    -- max items in completion popup
-opt.conceallevel = 0  -- show all characters (important for markdown)
+opt.showmode = false -- don't show -- INSERT -- (statusline handles this)
+opt.pumheight = 10   -- max items in completion popup
+opt.conceallevel = 0 -- show all characters (important for markdown)
