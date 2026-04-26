@@ -77,6 +77,21 @@ return {
     end,
   },
 
+  -- Mini.ai and Mini.surround
+  {
+    "echasnovski/mini.nvim",
+    config = function()
+      -- Extended text objects (va), yinq, ci', etc.)
+      require("mini.ai").setup({ n_lines = 500 })
+
+      -- Surround actions
+      -- saiw) - add () around word
+      -- sd'   - delete surrounding '
+      -- sr)'  - replace ) with '
+      require("mini.surround").setup()
+    end,
+  },
+
   -- Scroll past EOF
   {
     "Aasim-A/scrollEOF.nvim",
