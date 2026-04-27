@@ -148,6 +148,8 @@ TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(starship module character) '
 # PATH
 export PATH="$HOME/.local/bin:$PATH"
 
+export PATH="$HOME/.cargo/bin:$PATH"
+
 export npm_config_prefix="$HOME/.local"
 
 
