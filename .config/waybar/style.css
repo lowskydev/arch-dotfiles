@@ -66,6 +66,7 @@ window#waybar.hidden {
 #pulseaudio,
 #network,
 #tray,
+#custom-pomo,
 #clock {
   background-color: rgba(49, 50, 68, 0.6);
   color: #cdd6f4;
@@ -83,7 +84,7 @@ window#waybar.hidden {
 }
 
 #custom-gpu-temp {
-  color: #f38ba8;
+  color: #cdd6f4;
   font-size: 13px;
 }
 
@@ -133,4 +134,21 @@ tooltip {
     color: #f38ba8;
     background-color: rgba(243, 139, 168, 0.2);
   }
+}
+
+#custom-pomo {
+  color: #cdd6f4;
+  padding: 0 8px;
+}
+
+#custom-pomo.running {
+  color: #a6e3a1;
+}
+
+#custom-pomo.paused {
+  color: #f9e2af;
+}
+
+#custom-pomo.finished {
+  color: #f38ba8;
 }

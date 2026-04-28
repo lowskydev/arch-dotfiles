@@ -20,6 +20,7 @@
             "custom/gpu-temp",
             "pulseaudio",
             "tray",
+            "custom/pomo",
             "clock"
         ],
         "hyprland/workspaces": {
@@ -77,6 +78,15 @@
             "interval": 2,
             "tooltip": false
         },
+        "custom/pomo": {
+            "format": "󱦟 {}",
+            "exec": "pomodoro-cli status --format json --time-format digital",
+            "return-type": "json",
+            "on-click": "pomodoro-cli pause",
+            "on-click-right": "pomodoro-cli stop",
+            "interval": 1,
+            "tooltip": true
+        },
         "pulseaudio": {
             "format": "{icon}  {volume}%",
             "format-muted": "  muted",
@@ -124,6 +134,7 @@
             "custom/gpu-temp",
             "pulseaudio",
             "tray",
+            "custom/pomo",
             "clock"
         ],
         "hyprland/workspaces": {
@@ -174,6 +185,15 @@
             "format-critical": "  {temperatureC}°C",
             "tooltip": false,
             "interval": 2
+        },
+        "custom/pomo": {
+            "format": "󱦟 {}",
+            "exec": "pomodoro-cli status --format json --time-format digital",
+            "return-type": "json",
+            "on-click": "pomodoro-cli pause",
+            "on-click-right": "pomodoro-cli stop",
+            "interval": 1,
+            "tooltip": true
         },
         "custom/gpu-temp": {
             "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits",

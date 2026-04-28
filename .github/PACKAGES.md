@@ -134,6 +134,7 @@ sudo pacman -Sy
 | `reflector` | Mirror ranking tool |
 | `jq` | JSON processor (required by grimblast) |
 | `imagemagick` | Image processing (required by image.nvim) |
+| `alsa-lib` | ALSA library (required by pomodoro-cli for audio) |
 | `swaync` | Notification daemon with notification center |
 | `libnotify` | Provides notify-send for sending notifications |
 | `grimblast` | Screenshot helper for Hyprland |
@@ -157,6 +158,14 @@ sudo pacman -Sy
 | `grimblast` | Screenshot helper for Hyprland |
 | `fzf-tab` | Replaces zsh completion menu with fzf picker |
 | `zsh-fast-syntax-highlighting` | Feature-rich syntax highlighting for zsh |
+
+---
+
+## Cargo packages (cargo install)
+
+| Package | Description |
+|---|---|
+| `pomodoro-cli` | CLI pomodoro timer with Waybar integration |
 
 ---
 
