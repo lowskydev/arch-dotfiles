@@ -14,8 +14,9 @@ set notification-error-fg "#1e1e2e"
 set notification-warning-bg "#f9e2af"
 set notification-warning-fg "#1e1e2e"
 
-set highlight-color "#f5c2e7"
-set highlight-active-color "#cba6f7"
+set highlight-color "rgba(245,194,231,0.3)"
+set highlight-transparency 0.3
+set highlight-active-color "#cba6f750"
 
 set completion-bg "#313244"
 set completion-fg "#cdd6f4"
@@ -26,3 +27,5 @@ set recolor-lightcolor "#1e1e2e"
 set recolor-darkcolor "#cdd6f4"
 
 set recolor true
+
+set selection-clipboard clipboard
