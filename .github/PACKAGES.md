@@ -140,6 +140,9 @@ sudo pacman -Sy
 | `grimblast` | Screenshot helper for Hyprland |
 | `zathura` | Minimalistic document viewer |
 | `zathura-pdf-mupdf` | PDF support for Zathura (MuPDF backend) |
+| `borgbackup` | Backup tool |
+| `borgmatic` | Borgmatic wrapper for borgbackup |
+| `python-pyfuse3` | FUSE support for borgmatic mount |
 
 ### Neovim
 | Package | Description |
