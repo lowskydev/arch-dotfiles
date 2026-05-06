@@ -59,6 +59,13 @@ return {
           keymap("n", "<leader>d", vim.diagnostic.open_float, opts)
           keymap("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, opts)
           keymap("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, opts)
+          keymap("n", "<leader>dy", function()
+            local diags = vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 })
+            if #diags > 0 then
+              vim.fn.setreg("+", diags[1].message)
+              vim.api.nvim_echo({ { " diagnostic copied", "DiagnosticInfo" } }, false, {})
+            end
+          end, opts)
         end,
       })
 
