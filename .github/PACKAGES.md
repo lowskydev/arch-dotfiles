@@ -138,6 +138,7 @@ sudo pacman -Sy
 | `swaync` | Notification daemon with notification center |
 | `libnotify` | Provides notify-send for sending notifications |
 | `grimblast` | Screenshot helper for Hyprland |
+| `mpv` | Media player |
 | `zathura` | Minimalistic document viewer |
 | `zathura-pdf-mupdf` | PDF support for Zathura (MuPDF backend) |
 | `borgbackup` | Backup tool |
