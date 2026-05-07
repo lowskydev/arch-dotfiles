@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Smooth Scroll for Recording
 // @namespace    http://tampermonkey.net/
-// @version      1.2
-// @description  Smoothly scroll page top-to-bottom for screen recordings
+// @version      1.3
+// @description  Smoothly scroll page top-to-bottom at a constant speed
 // @author       You
 // @match        *://*/*
 // @grant        none
@@ -13,37 +13,41 @@
   'use strict';
 
   // === CONFIG ===
-  const DURATION_MS = 30000;   // total scroll time in ms
-  const START_DELAY_MS = 3000; // delay before scroll starts
+  const PIXELS_PER_SECOND = 200; // scroll speed — same on every page
+  const START_DELAY_MS = 3000;   // delay before scroll starts
   // ==============
 
-  function smoothScroll(durationMs) {
+  function smoothScroll() {
     window.scrollTo(0, 0);
     const start = 0;
     const end = document.documentElement.scrollHeight - window.innerHeight;
     const distance = end - start;
+    const durationMs = (distance / PIXELS_PER_SECOND) * 1000;
     const startTime = performance.now();
 
     function step(now) {
       const elapsed = now - startTime;
       const t = Math.min(elapsed / durationMs, 1);
-      window.scrollTo(0, start + distance * t); // linear: constant speed
+      window.scrollTo(0, start + distance * t);
       if (t < 1) requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
   }
 
   function trigger() {
-    btn.textContent = `Scrolling in ${START_DELAY_MS / 1000}s…`;
+    const end = document.documentElement.scrollHeight - window.innerHeight;
+    const totalSec = Math.round(end / PIXELS_PER_SECOND);
+    btn.textContent = `(${totalSec}s scroll)`;
     btn.style.background = '#d73a49';
     setTimeout(() => {
-      btn.style.display = 'none'; // hide button so it's not in the recording
-      smoothScroll(DURATION_MS);
+      btn.style.display = 'none';
+      smoothScroll();
+      const durationMs = (end / PIXELS_PER_SECOND) * 1000;
       setTimeout(() => {
         btn.style.display = 'block';
         btn.textContent = '▶ Scroll';
         btn.style.background = '#2da44e';
-      }, DURATION_MS + 500);
+      }, durationMs + 500);
     }, START_DELAY_MS);
   }
 
