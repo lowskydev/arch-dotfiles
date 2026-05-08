@@ -158,6 +158,7 @@ sudo pacman -Sy
 
 | Package | Description |
 |---|---|
+| `libva-nvidia-driver` | VA-API driver for NVIDIA (hardware video decode in browsers) |
 | `bibata-cursor-theme` | Cursor theme |
 | `tela-icon-theme` | Icon theme |
 | `grimblast` | Screenshot helper for Hyprland |
@@ -201,6 +202,17 @@ systemctl --user enable --now wireplumber
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw enable
+```
+
+### DNS setup (systemd-resolved + Cloudflare)
+```
+sudo systemctl enable --now systemd-resolved
+sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+nmcli connection modify "Wired connection 1" ipv4.dns "1.1.1.1 1.0.0.1"
+nmcli connection modify "Wired connection 1" ipv4.ignore-auto-dns yes
+nmcli connection up "Wired connection 1"
+sudo systemctl restart NetworkManager
+sudo systemctl restart tailscaled
 ```
 
 ### NVIDIA — enable DRM kernel mode setting
