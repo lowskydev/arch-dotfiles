@@ -54,6 +54,7 @@ sudo pacman -Sy
 | `starship` | Shell prompt |
 | `zsh-autosuggestions` | Fish-like autosuggestions for zsh |
 | `zoxide` | Smarter cd command |
+| `tmux` | Terminal multiplexer |
 | `fzf` | Fuzzy finder (used by fzf-tab and CTRL+R history search) |
 | `zsh-completions` | Extra completion definitions for zsh |
 
@@ -251,6 +252,24 @@ sudo ufw allow out on virbr0
 sudo ufw route allow in on virbr0
 sudo ufw route allow out on virbr0
 ```
+
+### Set up tmux
+Install TPM (plugin manager):
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+
+Install catppuccin theme manually:
+```
+mkdir -p ~/.config/tmux/plugins/catppuccin
+git clone -b v2.3.0 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+```
+
+Start tmux and install plugins:
+```
+tmux
+```
+Then press `CTRL+a` followed by `I` to install all plugins.
 
 ## Browser scripts
 Tampermonkey scripts are stored as plain `.js` files in `~/.config/tampermonkey/`. Tampermonkey is required as an browser extension enabled in browser of choice. Remember to enable developer settings in extensions and then enable permission for executing scripts in extension menu for tampermonkey.
