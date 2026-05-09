@@ -109,6 +109,7 @@ sudo pacman -Sy
 |---|---|
 | `ttf-jetbrains-mono-nerd` | JetBrains Mono with Nerd Font icons |
 | `noto-fonts` | Noto fonts |
+| `noto-fonts-cjk` | Chinese/Japanese/Korean font support |
 | `noto-fonts-emoji` | Emoji support |
 
 ### NVIDIA drivers (skip if not using NVIDIA)
