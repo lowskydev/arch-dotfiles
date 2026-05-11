@@ -43,3 +43,8 @@ keymap("n", "<leader>wq", ":wq<CR>", opts)
 -- Split navigation shortcuts
 keymap("n", "<leader>sv", ":vsplit<CR>", opts) -- vertical split
 keymap("n", "<leader>sh", ":split<CR>", opts)  -- horizontal split
+
+-- Unmap Escape in normal/insert/visual mode to force using Caps Lock
+keymap("i", "<Esc>", "<Nop>", opts)
+keymap("n", "<Esc>", "<Nop>", opts)
+keymap("v", "<Esc>", "<Nop>", opts)
