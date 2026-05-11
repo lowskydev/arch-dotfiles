@@ -5,6 +5,7 @@ See [PACKAGES.md](PACKAGES.md) for required packages and post-install steps.
 ---
 
 ## Alias
+Add to `~/.zshrc`
 ```
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 ```
