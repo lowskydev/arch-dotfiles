@@ -146,6 +146,7 @@ sudo pacman -Sy
 | `borgbackup` | Backup tool |
 | `borgmatic` | Borgmatic wrapper for borgbackup |
 | `python-pyfuse3` | FUSE support for borgmatic mount |
+| `keyd` | Kernel-level key remapper |
 
 ### Neovim
 | Package | Description |
