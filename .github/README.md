@@ -8,7 +8,7 @@ See [PACKAGES.md](PACKAGES.md) for required packages and post-install steps.
 ```
 alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 ```
-Use `dotfiles` as a drop-in replacement for `git` to manage configs.
+Use `dotfiles` as a replacement for `git` to manage configs.
 
 ---
 
