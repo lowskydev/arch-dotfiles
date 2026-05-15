@@ -157,6 +157,12 @@ configuration {
 /*	me-select-entry: "MousePrimary";*/
 /*	me-accept-entry: "MouseDPrimary";*/
 /*	me-accept-custom: "Control+MouseDPrimary";*/
+kb-row-up: "Up,Control+p,k";
+kb-row-down: "Down,Control+n,j";
+kb-row-first: "Home,KP_Home,g";
+kb-row-last: "End,KP_End,G";
+kb-cancel: "Escape,Control+g,Control+bracketleft,q";
+
   timeout {
       action: "kb-cancel";
       delay:  0;
