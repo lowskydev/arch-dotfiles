@@ -134,6 +134,9 @@ dotpush() {
   dotfiles push
 }
 
+# Creates and enter direcotry
+mkcd() { mkdir -p "$1" && cd "$1" }
+
 # Fast syntax highlighting
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
