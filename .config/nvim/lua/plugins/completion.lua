@@ -58,13 +58,12 @@ return {
       }),
 
       sources = cmp.config.sources({
-        { name = "lazydev", group_index = 0 },
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "buffer" },
-        { name = "path" },
+        { name = "lazydev",  group_index = 0 },
+        { name = "luasnip",  priority = 1000 },
+        { name = "nvim_lsp", priority = 900 },
+        { name = "buffer",   priority = 500 },
+        { name = "path",     priority = 400 },
       }),
-
       preselect = cmp.PreselectMode.None,
 
       window = {
