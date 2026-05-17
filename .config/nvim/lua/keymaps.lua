@@ -48,3 +48,15 @@ keymap("n", "<leader>sh", ":split<CR>", opts)  -- horizontal split
 -- keymap("i", "<Esc>", "<Nop>", opts)
 -- keymap("n", "<Esc>", "<Nop>", opts)
 -- keymap("v", "<Esc>", "<Nop>", opts)
+
+-- Toggle auto-comment continuation (Enter only, not o/O)
+keymap("n", "<leader>tc", function()
+  local fo = vim.o.formatoptions
+  if fo:find("r") then
+    vim.cmd("set formatoptions-=r")
+    vim.notify("Auto-comment OFF")
+  else
+    vim.cmd("set formatoptions+=r")
+    vim.notify("Auto-comment ON")
+  end
+end, { noremap = true, silent = false, desc = "Toggle auto-comment continuation" })
