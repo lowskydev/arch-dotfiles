@@ -1,0 +1,25 @@
+[user]
+	email = lowskydev@gmail.com
+	name = whywiki
+	signingkey = E18B837B5B9813FE
+[commit]
+	gpgsign = true
+[credential]
+	helper = store
+[core]
+	editor = nvim
+[init]
+	defaultBranch = main
+[diff]
+    tool = diffview
+[difftool "diffview"]
+    cmd = nvim -n -c "DiffviewOpen" "$MERGE"
+[difftool "nvimdiff"]
+    cmd = nvim -d "$LOCAL" "$REMOTE"
+[difftool]
+    prompt = false
+[merge]
+    tool = nvimdiff
+    conflictstyle = diff3
+[mergetool]
+    keepBackup = false
