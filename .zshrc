@@ -138,6 +138,12 @@ dotpush() {
 # Creates and enter direcotry
 mkcd() { mkdir -p "$1" && cd "$1" }
 
+# Open PDF in Zathura detached from terminal
+function zath() {
+    nohup zathura "$@" &>/dev/null &
+    disown
+}
+
 # Fast syntax highlighting
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
