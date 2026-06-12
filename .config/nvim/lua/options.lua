@@ -51,3 +51,6 @@ opt.timeoutlen = 300 -- key sequence timeout
 opt.showmode = false -- don't show -- INSERT -- (statusline handles this)
 opt.pumheight = 10   -- max items in completion popup
 opt.conceallevel = 0 -- show all characters (important for markdown)
+
+-- remove lua error logs
+vim.lsp.log.set_level("off")
