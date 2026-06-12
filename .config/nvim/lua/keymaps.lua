@@ -39,6 +39,7 @@ keymap("n", "<leader>h", ":nohlsearch<CR>", opts)
 keymap("n", "<leader>w", ":w<CR>", opts)
 keymap("n", "<leader>q", ":q<CR>", opts)
 keymap("n", "<leader>wq", ":wq<CR>", opts)
+keymap("n", "<leader>qq", ":qa<CR>", opts)
 
 -- Split navigation shortcuts
 keymap("n", "<leader>sv", ":vsplit<CR>", opts) -- vertical split
