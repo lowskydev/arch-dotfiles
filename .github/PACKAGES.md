@@ -136,6 +136,10 @@ sudo pacman -Sy
 | `reflector` | Mirror ranking tool |
 | `jq` | JSON processor (required by grimblast) |
 | `imagemagick` | Image processing (required by image.nvim) |
+| `ncdu` | Interactive terminal disk usage analyzer |
+| `dust` | Fast disk usage overview with visual bars |
+| `git-delta` | Enhanced git diff viewer |
+| `discord` | Discord messaging client |
 | `alsa-lib` | ALSA library (required by pomodoro-cli for audio) |
 | `swaync` | Notification daemon with notification center |
 | `libnotify` | Provides notify-send for sending notifications |
