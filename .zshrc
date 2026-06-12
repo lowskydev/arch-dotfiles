@@ -90,6 +90,7 @@ eval "$(zoxide init zsh)"
 # most usefull: gst, gaa, gcm, gp, gl, glo, and gcb
 alias g='git'
 alias ga='git add'
+alias gau='git add'
 alias gaa='git add --all'
 alias gc='git commit'
 alias gcm='git commit -m'
@@ -100,7 +101,7 @@ alias gb='git branch'
 alias gbd='git branch -d'
 alias gst='git status'
 alias gss='git status -s'
-alias gd='git diff'
+alias gd='git difftool'
 alias gds='git diff --staged'
 alias gdd='git diff HEAD~1 | delta --side-by-side'
 alias gl='git pull'
@@ -115,6 +116,32 @@ alias grss='git restore --staged'
 alias gsth='git stash'
 alias gstp='git stash pop'
 
+# Dotfiles aliases
+# most useful: dst, da, dcm, dp, dl, dlo
+alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+alias dot='dotfiles'
+alias da='dotfiles add'
+alias dau='dotfiles add -u'
+alias dc='dotfiles commit'
+alias dcm='dotfiles commit -m'
+alias dca='dotfiles commit --amend'
+alias dst='dotfiles status'
+alias dss='dotfiles status -s'
+alias ddf='dotfiles difftool'
+alias ddfs='dotfiles diff --staged'
+alias dl='dotfiles pull'
+alias dp='dotfiles push'
+alias dpf='dotfiles push --force-with-lease'
+alias dlo='dotfiles log --oneline --graph --decorate'
+
+# Dotfiles quick commit and push
+dotpush() {
+  dotfiles add -u
+  dotfiles commit -m "${1:?Usage: dotpush 'commit message'}"
+  dotfiles push
+}
+
 # Aliases
 alias ls='ls --color=auto'
 alias ll='ls -la'
@@ -125,16 +152,7 @@ alias ...='cd ../..'
 alias vim="nvim"
 alias vi="nvim"
 alias clear="tput reset"
-alias dotfiles='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias dst='dotfiles status'
 alias dobranoc='sudo shutdown now'
-
-# Dotfiles quick commit and push
-dotpush() {
-  dotfiles add -u
-  dotfiles commit -m "${1:?Usage: dotpush 'commit message'}"
-  dotfiles push
-}
 
 # Creates and enter direcotry
 mkcd() { mkdir -p "$1" && cd "$1" }
