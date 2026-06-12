@@ -23,3 +23,6 @@
     conflictstyle = diff3
 [mergetool]
     keepBackup = false
+[alias]
+	unstage = reset HEAD --
+	last = log -1 HEAD
