@@ -54,3 +54,6 @@ opt.conceallevel = 0 -- show all characters (important for markdown)
 
 -- remove lua error logs
 vim.lsp.log.set_level("off")
+
+-- nice / symbol in nvim difftool
+vim.opt.fillchars:append { diff = "╱" }
