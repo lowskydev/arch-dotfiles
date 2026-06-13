@@ -10,19 +10,27 @@
 	editor = nvim
 [init]
 	defaultBranch = main
+
 [diff]
-    tool = diffview
-[difftool "diffview"]
-    cmd = nvim -n -c "DiffviewOpen" "$MERGE"
+    tool = nvimdiff
+
 [difftool "nvimdiff"]
     cmd = nvim -d "$LOCAL" "$REMOTE"
+
 [difftool]
     prompt = false
+
 [merge]
-    tool = nvimdiff
+    tool = diffview
     conflictstyle = diff3
+
+[mergetool "diffview"]
+    cmd = nvim -n -c "DiffviewOpen" "$MERGE"
+
 [mergetool]
+    prompt = false
     keepBackup = false
+
 [alias]
-	unstage = reset HEAD --
+	unstage = restore --staged
 	last = log -1 HEAD
