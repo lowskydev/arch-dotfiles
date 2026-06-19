@@ -10,7 +10,7 @@ return {
   },
   config = function()
     require("livepreview.config").set({
-      browser = "vivaldi", -- your browser
+      browser = "false", -- your browser (for auto open use "vivaldi")
       port = 8080,
       dynamic_root = true,
     })
