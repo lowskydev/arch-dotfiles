@@ -176,6 +176,7 @@ TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(starship module character) '
 
 # EDITOR
 export EDITOR=nvim
+export VISUAL=nvim
 
 # PATH
 export PATH="$HOME/.local/bin:$PATH"
