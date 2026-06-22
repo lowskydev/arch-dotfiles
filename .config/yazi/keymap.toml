@@ -1,0 +1,4 @@
+[[mgr.prepend_keymap]]
+on = "T"
+run = "shell --orphan 'thunar \"$CWD\"'"
+desc = "Open Thunar in current directory"
