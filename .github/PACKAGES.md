@@ -205,6 +205,10 @@ sudo pacman -Sy
 
 ## Post-install steps
 
+### Enable pacman color and animation
+
+Uncomment `Color` and add `ILoveCandy` in `/etc/pacman.conf` under `[options]`.
+
 ### Set zsh as default shell
 
 ```
