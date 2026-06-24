@@ -8,9 +8,9 @@
 // @run-at       document-end
 // ==/UserScript==
 
-(function() {
-  'use strict';
-  console.log('[claude-vim] loaded');
+(function () {
+  "use strict";
+  console.log("[claude-vim] loaded");
 
   // px per animation frame (~60fps). Tune this to taste.
   const SCROLL_SPEED = 6;
@@ -20,9 +20,10 @@
 
   // ── Scroll container ────────────────────────────────────────────────────
   function getScrollContainer() {
-    for (const el of document.querySelectorAll('div')) {
+    for (const el of document.querySelectorAll("div")) {
       const style = getComputedStyle(el);
-      const scrollable = style.overflowY === 'auto' || style.overflowY === 'scroll';
+      const scrollable =
+        style.overflowY === "auto" || style.overflowY === "scroll";
       if (scrollable && el.scrollHeight > el.clientHeight + 100) return el;
     }
     return document.documentElement;
@@ -46,7 +47,10 @@
   }
 
   function stopScrolling() {
-    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
   }
 
   // ── Prompt helpers ──────────────────────────────────────────────────────
@@ -62,8 +66,8 @@
     const active = document.activeElement;
     if (!active) return false;
     return (
-      active.tagName === 'INPUT' ||
-      active.tagName === 'TEXTAREA' ||
+      active.tagName === "INPUT" ||
+      active.tagName === "TEXTAREA" ||
       active.isContentEditable ||
       !!active.closest('[contenteditable="true"]')
     );
@@ -71,7 +75,11 @@
 
   function isMainInputFocused() {
     const input = getMainInput();
-    return input && (document.activeElement === input || input.contains(document.activeElement));
+    return (
+      input &&
+      (document.activeElement === input ||
+        input.contains(document.activeElement))
+    );
   }
 
   function focusMainInput() {
@@ -87,56 +95,76 @@
   }
 
   // ── Key handlers ────────────────────────────────────────────────────────
-  window.addEventListener('keydown', function(e) {
-    if (e.ctrlKey || e.altKey || e.metaKey) return;
+  window.addEventListener(
+    "keydown",
+    function (e) {
+      if (e.ctrlKey || e.altKey || e.metaKey) return;
 
-    // Escape: unfocus main prompt only
-    if (e.key === 'Escape' && isMainInputFocused()) {
-      document.activeElement.blur();
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      return;
-    }
-
-    if (isAnyEditorFocused()) return;
-
-    switch (e.key) {
-      case 'j':
-        if (!held.j) { held.j = true; startScrolling(); }
+      // Escape: unfocus main prompt only
+      if (e.key === "Escape" && isMainInputFocused()) {
+        document.activeElement.blur();
         e.preventDefault();
         e.stopImmediatePropagation();
-        break;
-
-      case 'k':
-        if (!held.k) { held.k = true; startScrolling(); }
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        break;
-
-      case 'i':
-        focusMainInput();
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        break;
-
-      case 's':
-      case 'S': {
-        const btn = getSidebarToggle();
-        if (btn) btn.click();
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        break;
+        return;
       }
-    }
-  }, true);
 
-  window.addEventListener('keyup', function(e) {
-    if (e.key === 'j') { held.j = false; if (!held.k) stopScrolling(); }
-    if (e.key === 'k') { held.k = false; if (!held.j) stopScrolling(); }
-  }, true);
+      if (isAnyEditorFocused()) return;
+
+      switch (e.key) {
+        case "j":
+          if (!held.j) {
+            held.j = true;
+            startScrolling();
+          }
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          break;
+
+        case "k":
+          if (!held.k) {
+            held.k = true;
+            startScrolling();
+          }
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          break;
+
+        case "i":
+          focusMainInput();
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          break;
+
+        case "s":
+        case "S": {
+          const btn = getSidebarToggle();
+          if (btn) btn.click();
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          break;
+        }
+      }
+    },
+    true,
+  );
+
+  window.addEventListener(
+    "keyup",
+    function (e) {
+      if (e.key === "j") {
+        held.j = false;
+        if (!held.k) stopScrolling();
+      }
+      if (e.key === "k") {
+        held.k = false;
+        if (!held.j) stopScrolling();
+      }
+    },
+    true,
+  );
 
   // Safety net: stop scrolling if window loses focus
-  window.addEventListener('blur', function() {
+  window.addEventListener("blur", function () {
     held.j = false;
     held.k = false;
     stopScrolling();

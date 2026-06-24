@@ -9,12 +9,12 @@
 // @run-at       document-idle
 // ==/UserScript==
 
-(function() {
-  'use strict';
+(function () {
+  "use strict";
 
   // === CONFIG ===
   const PIXELS_PER_SECOND = 200; // scroll speed — same on every page
-  const START_DELAY_MS = 3000;   // delay before scroll starts
+  const START_DELAY_MS = 3000; // delay before scroll starts
   // ==============
 
   function smoothScroll() {
@@ -38,36 +38,36 @@
     const end = document.documentElement.scrollHeight - window.innerHeight;
     const totalSec = Math.round(end / PIXELS_PER_SECOND);
     btn.textContent = `(${totalSec}s scroll)`;
-    btn.style.background = '#d73a49';
+    btn.style.background = "#d73a49";
     setTimeout(() => {
-      btn.style.display = 'none';
+      btn.style.display = "none";
       smoothScroll();
       const durationMs = (end / PIXELS_PER_SECOND) * 1000;
       setTimeout(() => {
-        btn.style.display = 'block';
-        btn.textContent = '▶ Scroll';
-        btn.style.background = '#2da44e';
+        btn.style.display = "block";
+        btn.textContent = "▶ Scroll";
+        btn.style.background = "#2da44e";
       }, durationMs + 500);
     }, START_DELAY_MS);
   }
 
-  const btn = document.createElement('button');
-  btn.textContent = '▶ Scroll';
+  const btn = document.createElement("button");
+  btn.textContent = "▶ Scroll";
   Object.assign(btn.style, {
-    position: 'fixed',
-    bottom: '20px',
-    right: '20px',
-    zIndex: '999999',
-    padding: '10px 16px',
-    background: '#2da44e',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '6px',
-    cursor: 'pointer',
-    fontSize: '14px',
-    fontFamily: 'system-ui, sans-serif',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+    position: "fixed",
+    bottom: "20px",
+    right: "20px",
+    zIndex: "999999",
+    padding: "10px 16px",
+    background: "#2da44e",
+    color: "#fff",
+    border: "none",
+    borderRadius: "6px",
+    cursor: "pointer",
+    fontSize: "14px",
+    fontFamily: "system-ui, sans-serif",
+    boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
   });
-  btn.addEventListener('click', trigger);
+  btn.addEventListener("click", trigger);
   document.body.appendChild(btn);
 })();

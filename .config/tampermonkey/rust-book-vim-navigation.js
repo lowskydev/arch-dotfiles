@@ -11,9 +11,9 @@
 // @run-at       document-end
 // ==/UserScript==
 
-(function() {
-  'use strict';
-  console.log('[rust-book-vim] loaded on', location.href);
+(function () {
+  "use strict";
+  console.log("[rust-book-vim] loaded on", location.href);
 
   const SCROLL_SPEED = 3; // px per frame — tune to taste
 
@@ -36,41 +36,61 @@
   }
 
   function stopScrolling() {
-    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
   }
 
   function handler(e) {
     const t = e.target;
     if (!t) return;
-    if (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable) return;
+    if (
+      t.tagName === "INPUT" ||
+      t.tagName === "TEXTAREA" ||
+      t.isContentEditable
+    )
+      return;
     if (e.ctrlKey || e.altKey || e.metaKey) return;
 
     let handled = true;
     switch (e.key) {
-      case 'j':
-        if (!held.j) { held.j = true; startScrolling(); }
+      case "j":
+        if (!held.j) {
+          held.j = true;
+          startScrolling();
+        }
         break;
-      case 'k':
-        if (!held.k) { held.k = true; startScrolling(); }
+      case "k":
+        if (!held.k) {
+          held.k = true;
+          startScrolling();
+        }
         break;
-      case 'h': {
-        const prev = document.querySelector('a.nav-chapters.previous, a[rel="prev"], .mobile-nav-chapters.previous');
+      case "h": {
+        const prev = document.querySelector(
+          'a.nav-chapters.previous, a[rel="prev"], .mobile-nav-chapters.previous',
+        );
         if (prev) prev.click();
         break;
       }
-      case 'l': {
-        const next = document.querySelector('a.nav-chapters.next, a[rel="next"], .mobile-nav-chapters.next');
+      case "l": {
+        const next = document.querySelector(
+          'a.nav-chapters.next, a[rel="next"], .mobile-nav-chapters.next',
+        );
         if (next) next.click();
         break;
       }
-      case 's':
-      case 'S': {
-        const label = document.getElementById('mdbook-sidebar-toggle');
+      case "s":
+      case "S": {
+        const label = document.getElementById("mdbook-sidebar-toggle");
         if (label) {
           label.click();
         } else {
-          const anchor = document.getElementById('mdbook-sidebar-toggle-anchor');
-          const old = document.getElementById('sidebar-toggle');
+          const anchor = document.getElementById(
+            "mdbook-sidebar-toggle-anchor",
+          );
+          const old = document.getElementById("sidebar-toggle");
           if (anchor) anchor.click();
           else if (old) old.click();
         }
@@ -86,14 +106,24 @@
     }
   }
 
-  window.addEventListener('keydown', handler, true);
+  window.addEventListener("keydown", handler, true);
 
-  window.addEventListener('keyup', function(e) {
-    if (e.key === 'j') { held.j = false; if (!held.k) stopScrolling(); }
-    if (e.key === 'k') { held.k = false; if (!held.j) stopScrolling(); }
-  }, true);
+  window.addEventListener(
+    "keyup",
+    function (e) {
+      if (e.key === "j") {
+        held.j = false;
+        if (!held.k) stopScrolling();
+      }
+      if (e.key === "k") {
+        held.k = false;
+        if (!held.j) stopScrolling();
+      }
+    },
+    true,
+  );
 
-  window.addEventListener('blur', function() {
+  window.addEventListener("blur", function () {
     held.j = false;
     held.k = false;
     stopScrolling();
