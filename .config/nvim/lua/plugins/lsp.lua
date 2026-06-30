@@ -41,6 +41,7 @@ return {
 					"html", -- HTML
 					"cssls", -- CSS
 					"oxlint", -- React
+					"tailwindcss", -- Tailwind
 				},
 			})
 
@@ -92,6 +93,7 @@ return {
 				"html",
 				"cssls",
 				"oxlint",
+				"tailwindcss",
 			}
 
 			for _, server in ipairs(servers) do
